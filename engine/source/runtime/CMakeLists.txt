@@ -14,4 +14,6 @@ set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "Engine")
 
 target_link_libraries(${TARGET_NAME} PUBLIC glfw)
 
+target_link_directories(${TARGET_NAME} PUBLIC glm)
+
 target_include_directories(${TARGET_NAME} PRIVATE glad/include)

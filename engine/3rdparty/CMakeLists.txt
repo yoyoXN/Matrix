@@ -2,6 +2,14 @@ set(THIRD_PARTY_DIR "ThirdParty")
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 
+if(NOT TARGET glm)
+    option(BUILD_STATIC_LIBS "" ON)
+    option(BUILD_TESTING "" OFF)
+    option(GLM_TEST_ENABLE "" OFF)
+    add_subdirectory(glm)
+    set_target_properties(glm_static PROPERTIES FOLDER ${THIRD_PARTY_DIR}/glm)
+endif()
+
 if(NOT TARGET glfw)
     option(GLFW_BUILD_EXAMPLES "" OFF)
     option(GLFW_BUILD_TESTS "" OFF)
